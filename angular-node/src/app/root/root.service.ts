@@ -8,7 +8,7 @@ export class RootService {
   constructor(private http: HttpClient) {}
 
   getAPIData() {
-    return this.http.get("/api/getData");
+    return this.http.get("/api/users");
   }
 
   postAPIData() {

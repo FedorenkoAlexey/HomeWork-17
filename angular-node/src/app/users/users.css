@@ -1,0 +1,90 @@
+.btn-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  margin-left: 20px;
+}
+.user-id {
+  color: #2b3547;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.user-field {
+  position: relative;
+  font-size: 18px;
+  list-style-type: none;
+  background-color: #b4bbce;
+  height: 35px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 15px;
+  width: 250px;
+  text-align: center;
+  padding-top: 14px;
+}
+
+.user-list li:hover {
+  color: #2b3547;
+  background-color: #7e95c0;
+  transform: scale(1.04);
+  box-shadow: 0 0 12px rgb(0, 0, 0);
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  width: 160px;
+  height: auto;
+  font-size: 90%;
+  font-weight: 700;
+  color: rgb(209, 209, 217);
+  text-decoration: none;
+  text-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+  padding: 0.5em 1em;
+  outline: none;
+  border-radius: 3px;
+  background: linear-gradient(rgb(110, 112, 120), rgb(81, 81, 86))
+    rgb(110, 112, 120);
+  box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5),
+    0 0 1px 1px rgba(0, 1, 6, 0.2);
+  transition: 0.2s ease-in-out;
+}
+button:hover:not(:active) {
+  background: linear-gradient(rgb(126, 126, 134), rgb(70, 71, 76))
+    rgb(126, 126, 134);
+}
+button:active {
+  top: 1px;
+  background: linear-gradient(rgb(76, 77, 82), rgb(56, 57, 62)) rgb(76, 77, 82);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset,
+    0 2px 3px rgba(0, 0, 0, 0.5) inset, 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+h2 {
+  font-weight: 900;
+  font-size: 36px;
+  text-shadow: 0 0 5px rgb(209, 209, 217);
+}
+
+/* .user-list {
+  margin: 10px;
+  width: 350px;
+  text-align: center;
+} */
+
+.selected {
+  background: #324880;
+  color: white;
+  box-shadow: 0 0 3px rgb(0, 0, 0);
+}
+
+.user-list .selected:hover {
+  background: #506db4;
+  color: rgb(194, 191, 191);
+  box-shadow: 0 0 12px rgb(0, 0, 0);
+}
+
+/* .post-list {
+  list-style-type: none;
+  font-weight: 500;
+} */

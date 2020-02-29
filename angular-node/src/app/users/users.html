@@ -1,0 +1,27 @@
+<div class="btn-cont">
+  <button (click)="getUsers()">Get Users</button>
+  <div *ngIf="isActive">
+    <form>
+      <label>User Id</label>
+      <input type="text" placeholder="id" [value]="data.id" />
+      <button type="submit" (ngSubmit)="onSubmit()">Delete User</button>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <div class="user-list">
+    <h2>Users list</h2>
+    <ul>
+      <li
+        *ngFor="let user of users"
+        (click)="getUserId(user.id)"
+        [class.selected]="user === selectedUser"
+        class="user-field"
+      >
+        <span class="user-id">{{user.id}}.</span>
+        {{ user.firstName }} {{ user.lastName }}
+      </li>
+    </ul>
+  </div>
+</div>

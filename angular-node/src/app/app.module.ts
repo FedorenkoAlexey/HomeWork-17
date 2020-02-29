@@ -4,10 +4,11 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { RootComponent } from "./root/root.component";
 import { HttpClientModule } from "@angular/common/http";
+import { UsersModule } from "./users/users.module";
 
 @NgModule({
   declarations: [AppComponent, RootComponent],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, UsersModule],
   providers: [],
   bootstrap: [AppComponent, RootComponent]
 })

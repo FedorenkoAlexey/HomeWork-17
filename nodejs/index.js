@@ -1,14 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const path = require("path");
+const fs = require("fs");
 
-// server = http.createServer((req, res) => {
-//   res.write("<h1>Header - H1</h1>");
-//   res.end("Hello NodeJS!");
-// });
+// console.log(path.join(__dirname, "data", "users.json"));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 app.all("/*", (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -21,8 +20,13 @@ app.get("/", (req, res) => {
   res.send("Welcome to Node API");
 });
 
-app.get("/getData", (req, res) => {
-  res.json({ message: "Hello World" });
+app.get("/users", (req, res) => {
+  let content = fs.readFileSync(
+    path.join(__dirname, "data", "users.json"),
+    "utf8"
+  );
+  let users = JSON.parse(content);
+  res.json(users);
 });
 
 app.post("/postData", bodyParser.json(), (req, res) => {
