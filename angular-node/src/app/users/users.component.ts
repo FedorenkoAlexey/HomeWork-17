@@ -1,8 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ApiService } from "../rest/api.service";
 import { NgForm } from "@angular/forms";
 import { User } from "../rest/user/user.model";
-import { Post } from "../rest/post/post.model";
 
 @Component({
   selector: "app-users",
@@ -13,7 +12,7 @@ export class UsersComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   users: User;
-  posts: Post;
+  posts: any; // Create intrface !!!
   isActive: boolean = false;
   isShow: boolean = true;
 
@@ -21,7 +20,7 @@ export class UsersComponent implements OnInit {
 
   onSelect(user: User): void {
     this.selectedUser = user;
-    console.log("user.id", user.id);
+    console.log("user.id", user);
   }
 
   data: User = {
@@ -33,50 +32,31 @@ export class UsersComponent implements OnInit {
     age: null
   };
 
-  @Input() user: User;
-
   getUsers(): void {
-    this.api.getUsers();
-    this.users = this.api.users;
-    this.isActive = true;
+    this.api.getUsers().subscribe((user: User) => {
+      this.users = user;
+    });
     console.log(this.users);
   }
 
   deleteUsers = (id: number | string) => {
     this.api.deleteUser(id).subscribe(() => {
-      // this.isShow = false;
-      this.api.getUsers();
+      this.getUsers();
+
       console.log(`deleted user id: ${id}`);
     });
     // console.log(`deleted user id: ${id}`);
     // console.log("TEST", id);
   };
 
-  testPost() {
-    this.api.postTestData().subscribe(
-      response => {
-        console.log("response from POST API is ", response);
-      },
-      error => {
-        console.log("error during post is ", error);
-      }
-    );
+  getPosts(id: number) {
+    this.api.getUserPost(id).subscribe((posts: any) => {
+      this.posts = posts;
+      console.log(posts);
+    });
   }
 
   ngOnInit() {
-    this.api.getUsers();
-    // this.testPost();
-    // this.deleteUsers(17);
+    // this.api.getUsers();
   }
-
-  // delUser(form: NgForm) {
-  //   console.log("SUBMIT", this.data.id);
-  //   console.log(form.value);
-  // }
-
-  // getPost(id: any) {
-  //   this.api.getPosts(id).subscribe((posts: Post) => {
-  //     this.posts = posts;
-  //   });
-  // }
 }

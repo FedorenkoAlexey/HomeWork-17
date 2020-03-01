@@ -3,21 +3,19 @@ import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 import { ApiService } from "../rest/api.service";
 // import { MatInputModule } from "@angular/material/input";
-import { UsersComponent } from "./users.component";
 
 import { HttpClientModule } from "@angular/common/http";
-import { PostsModule } from "../posts/posts.module";
+import { PostsComponent } from './posts.component';
 
 @NgModule({
-  declarations: [UsersComponent],
+  declarations: [PostsComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
-    PostsModule
+    FormsModule
     // , MatInputModule
   ],
-  exports: [UsersComponent],
+  exports: [PostsComponent],
   providers: [ApiService]
 })
-export class UsersModule {}
+export class PostsModule {}

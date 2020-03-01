@@ -34,6 +34,7 @@
       <li
         *ngFor="let user of users"
         (click)="onSelect(user)"
+        (click)="getPosts(user.id)"
         [class.selected]="user === selectedUser"
         class="user-field"
       >
@@ -42,5 +43,8 @@
       </li>
     </ul>
   </div>
-  <button (click)="testPost()">TEST POST</button>
+  <div class="post-list" *ngIf="posts">
+    <!-- <app-posts></app-posts> -->
+    <app-posts [posts]="posts"></app-posts>
+  </div>
 </div>

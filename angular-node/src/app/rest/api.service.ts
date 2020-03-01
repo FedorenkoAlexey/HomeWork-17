@@ -8,27 +8,27 @@ import { Post } from "./post/post.model";
 })
 export class ApiService {
   private USER_URL = "/api/users";
+  private POST_URL = "/api/posts";
 
   data = {
     user: "Piter",
     age: 25
   };
 
-  users: User;
   posts: Post;
   constructor(private http: HttpClient) {}
 
   getUsers() {
-    return this.http.get(this.USER_URL).subscribe((response: User) => {
-      this.users = response;
-    });
+    return this.http.get(this.USER_URL);
   }
 
   deleteUser(id: any) {
+    // console.log("del: ", `${this.USER_URL}/${id}`);
     return this.http.delete(`${this.USER_URL}/${id}`);
   }
 
-  postTestData() {
-    return this.http.post("http://localhost:3000/postData", this.data);
+  getUserPost(id: number) {
+    // console.log(`${this.USER_URL}/posts/${id}`);
+    return this.http.get(`${this.POST_URL}/${id}`);
   }
 }
