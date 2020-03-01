@@ -15,6 +15,8 @@ export class UsersComponent implements OnInit {
   users: User;
   posts: Post;
   isActive: boolean = false;
+  isShow: boolean = true;
+
   selectedUser: User;
 
   onSelect(user: User): void {
@@ -40,9 +42,14 @@ export class UsersComponent implements OnInit {
     console.log(this.users);
   }
 
-  deleteUsers = async (id: number | string) => {
-    await this.api.deleteUser(id);
-    console.log("TEST", id);
+  deleteUsers = (id: number | string) => {
+    this.api.deleteUser(id).subscribe(() => {
+      // this.isShow = false;
+      this.api.getUsers();
+      console.log(`deleted user id: ${id}`);
+    });
+    // console.log(`deleted user id: ${id}`);
+    // console.log("TEST", id);
   };
 
   testPost() {
@@ -58,7 +65,8 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.api.getUsers();
-    this.testPost();
+    // this.testPost();
+    // this.deleteUsers(17);
   }
 
   // delUser(form: NgForm) {

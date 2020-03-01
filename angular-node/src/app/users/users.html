@@ -1,7 +1,18 @@
 <div class="btn-cont">
-  <button (click)="getUsers()">Get Users</button>
+  <div>
+    <button class="btn-get-users" (click)="getUsers()">Get Users</button>
+  </div>
+  <div *ngIf="selectedUser" class="del-div">
+    <h3>
+      <span class="on-delete">Delete user: </span>{{ selectedUser.firstName }}
+      {{ selectedUser.lastName }} ?
+    </h3>
+    <button class="btn-del" (click)="deleteUsers(selectedUser.id)">
+      Delete
+    </button>
+  </div>
   <div *ngIf="isActive">
-    <form #form="ngForm" (ngSubmit)="delUser(form)">
+    <!-- <form #form="ngForm" (ngSubmit)="delUser(form)">
       <label>User Id</label>
       <input
         type="text"
@@ -12,12 +23,12 @@
         #id="ngModel"
       />
       <button type="submit" (ngSubmit)="onSubmit()">Delete User</button>
-    </form>
+    </form> -->
   </div>
 </div>
 
 <div class="container">
-  <div class="user-list">
+  <div *ngIf="isShow" class="user-list">
     <h2>Users list</h2>
     <ul>
       <li
@@ -31,10 +42,5 @@
       </li>
     </ul>
   </div>
-  <button (click)="postTestData()">TEST POST</button>
-
-  <div *ngIf="selectedUser" class="user-info">
-    <h3>{{ selectedUser.firstName }} {{ selectedUser.lastName }} :</h3>
-    <button (click)="deleteUsers(selectedUser.id)">Delete User</button>
-  </div>
+  <button (click)="testPost()">TEST POST</button>
 </div>

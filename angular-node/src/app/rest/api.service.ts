@@ -25,10 +25,7 @@ export class ApiService {
   }
 
   deleteUser(id: any) {
-    console.log("api-del:", `${this.USER_URL}/${id}`);
-    return this.http.delete(`${this.USER_URL}/${id}`, {
-      params: new HttpParams().set(`id`, id)
-    });
+    return this.http.delete(`${this.USER_URL}/${id}`);
   }
 
   postTestData() {

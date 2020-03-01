@@ -39,7 +39,18 @@ app.post("/postData", bodyParser.json(), async (req, res) => {
 });
 
 app.delete("/users/:id", (req, res) => {
-  console.log("res-DEL: ", req.params.id);
+  // console.log("res-DEL-Node: ", req.params.id);
+  let userId = req.params.id;
+  let content = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "data", "users.json"), "utf8")
+  );
+  let resUser = content.filter((user, id) => user.id !== +userId);
+  fs.writeFileSync(
+    path.join(__dirname, "data", "users.json"),
+    JSON.stringify(resUser)
+  );
+  res.send(resUser);
+  // console.log("resUser: ", resUser);
 });
 
 app.listen(3000, "127.0.0.1", () => {

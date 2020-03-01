@@ -3,11 +3,29 @@
   flex-direction: row;
   justify-content: start;
   margin-left: 20px;
+  height: 60px;
+  border: 1px dotted rgb(11, 2, 41);
 }
 .user-id {
   color: #2b3547;
   font-weight: 700;
   font-size: 16px;
+}
+.del-div {
+  border: 1px solid green;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.btn-del {
+  margin: 12px 0 0 20px;
+  height: 30px;
+}
+.btn-get-users {
+  margin-top: 12px;
+}
+.on-delete {
+  color: rgb(151, 12, 12);
 }
 
 .user-list .selected:hover {
