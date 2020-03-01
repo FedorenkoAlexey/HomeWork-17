@@ -7,14 +7,7 @@ import { HttpClient } from "@angular/common/http";
 export class RootService {
   constructor(private http: HttpClient) {}
 
-  getAPIData() {
-    return this.http.get("/api/users");
-  }
-
-  postAPIData() {
-    return this.http.post("/api/postData", {
-      firstName: "Code",
-      lastName: "Handbook"
-    });
-  }
+  // getAPIData() {
+  //   return this.http.get("/api/users");
+  // }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { User } from "./user/user.model";
 import { Post } from "./post/post.model";
 
@@ -7,8 +7,13 @@ import { Post } from "./post/post.model";
   providedIn: "root"
 })
 export class ApiService {
-  private USER_URL = "http://localhost:3000/users";
-  // private POST_URL = "https://jsonplaceholder.typicode.com/posts?userId=";
+  private USER_URL = "/api/users";
+
+  data = {
+    user: "Piter",
+    age: 25
+  };
+
   users: User;
   posts: Post;
   constructor(private http: HttpClient) {}
@@ -19,7 +24,14 @@ export class ApiService {
     });
   }
 
-  // getPosts(id: number) {
-  //   return this.http.get(`${this.POST_URL}${id}`);
-  // }
+  deleteUser(id: any) {
+    console.log("api-del:", `${this.USER_URL}/${id}`);
+    return this.http.delete(`${this.USER_URL}/${id}`, {
+      params: new HttpParams().set(`id`, id)
+    });
+  }
+
+  postTestData() {
+    return this.http.post("http://localhost:3000/postData", this.data);
+  }
 }

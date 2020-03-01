@@ -1,9 +1,16 @@
 <div class="btn-cont">
   <button (click)="getUsers()">Get Users</button>
   <div *ngIf="isActive">
-    <form>
+    <form #form="ngForm" (ngSubmit)="delUser(form)">
       <label>User Id</label>
-      <input type="text" placeholder="id" [value]="data.id" />
+      <input
+        type="text"
+        placeholder="User Id"
+        pattern="^[0-9]*$"
+        [(ngModel)]="data.id"
+        name="id"
+        #id="ngModel"
+      />
       <button type="submit" (ngSubmit)="onSubmit()">Delete User</button>
     </form>
   </div>
@@ -15,7 +22,7 @@
     <ul>
       <li
         *ngFor="let user of users"
-        (click)="getUserId(user.id)"
+        (click)="onSelect(user)"
         [class.selected]="user === selectedUser"
         class="user-field"
       >
@@ -23,5 +30,11 @@
         {{ user.firstName }} {{ user.lastName }}
       </li>
     </ul>
+  </div>
+  <button (click)="postTestData()">TEST POST</button>
+
+  <div *ngIf="selectedUser" class="user-info">
+    <h3>{{ selectedUser.firstName }} {{ selectedUser.lastName }} :</h3>
+    <button (click)="deleteUsers(selectedUser.id)">Delete User</button>
   </div>
 </div>

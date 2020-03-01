@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ApiService } from "../rest/api.service";
-// import { NgForm } from "@angular/forms";
+import { NgForm } from "@angular/forms";
 import { User } from "../rest/user/user.model";
 import { Post } from "../rest/post/post.model";
 
@@ -15,6 +15,12 @@ export class UsersComponent implements OnInit {
   users: User;
   posts: Post;
   isActive: boolean = false;
+  selectedUser: User;
+
+  onSelect(user: User): void {
+    this.selectedUser = user;
+    console.log("user.id", user.id);
+  }
 
   data: User = {
     id: null,
@@ -33,21 +39,31 @@ export class UsersComponent implements OnInit {
     this.isActive = true;
     console.log(this.users);
   }
-  getUserId(id: number) {
-    console.log(id);
-  }
 
-  onSubmit() {
-    console.log("SUBMIT");
+  deleteUsers = async (id: number | string) => {
+    await this.api.deleteUser(id);
+    console.log("TEST", id);
+  };
+
+  testPost() {
+    this.api.postTestData().subscribe(
+      response => {
+        console.log("response from POST API is ", response);
+      },
+      error => {
+        console.log("error during post is ", error);
+      }
+    );
   }
 
   ngOnInit() {
     this.api.getUsers();
+    this.testPost();
   }
 
-  // onSubmit(form: NgForm) {
+  // delUser(form: NgForm) {
+  //   console.log("SUBMIT", this.data.id);
   //   console.log(form.value);
-  //   form.resetForm("");
   // }
 
   // getPost(id: any) {
