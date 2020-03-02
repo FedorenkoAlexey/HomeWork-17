@@ -41,8 +41,10 @@ export class UsersComponent implements OnInit {
 
   editUser(form: NgForm) {
     let data = this.data;
-    data = this.selectedUser;
+    data = { ...this.selectedUser };
     data.userName = form.value.username;
+    console.log("T_D: ", data);
+    console.log("DATA: ", this.data);
     this.api.editUserName(data).subscribe(
       response => {
         console.log("response from GET API is ", response);
