@@ -1,5 +1,5 @@
 .post-container {
-  border: 1px dotted purple;
+  /* border: 1px dotted purple; */
   margin-top: 110px;
   min-width: 200px;
   min-height: 200px;
@@ -19,5 +19,5 @@ li {
 
 .add-post {
   margin-top: 40px;
-  border: 1px dotted rgb(128, 51, 0);
+  /* border: 1px dotted rgb(128, 51, 0); */
 }

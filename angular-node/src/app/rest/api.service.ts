@@ -26,8 +26,8 @@ export class ApiService {
   }
 
   editUserName(user: User) {
-    console.log("PUT:", `${this.USER_URL}/edit/${user.id}`);
-    return this.http.put(`${this.USER_URL}/edit/${user.id}`, user, httpOptions);
+    // console.log("PUT:", `${this.USER_URL}/edit/${user.id}`);
+    return this.http.put(`${this.USER_URL}/edit/${user.id}`, user);
   }
 
   getUserPost(id: number) {

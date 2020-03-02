@@ -15,18 +15,15 @@ app.use(cors());
 app.use(users);
 app.use(posts);
 
-// app.all("/*", (req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   res.header(
-//     "Access-Control-Allow-Headers, Content-Type, X-Requested-With",
-//     "GET, PUT, POST, DELETE"
-//   );
-//   next();
-// });
+app.all("/*", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+  next();
+});
 
 app.get("/", (req, res) => {
   res.send("Welcome to Node API");

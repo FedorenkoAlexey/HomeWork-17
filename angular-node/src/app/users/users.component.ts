@@ -47,6 +47,7 @@ export class UsersComponent implements OnInit {
     console.log("DATA: ", this.data);
     this.api.editUserName(data).subscribe(
       response => {
+        this.getUsers();
         console.log("response from GET API is ", response);
       },
       error => {
