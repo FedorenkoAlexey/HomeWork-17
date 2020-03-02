@@ -11,6 +11,23 @@
   font-weight: 700;
   font-size: 16px;
 }
+
+.user-info {
+  margin: 170px 5px 5px 50px;
+  padding: 30px 20px 50px 20px;
+  font-size: 16px;
+  height: 150px;
+  min-width: 250px;
+  background-color: #b4bbce;
+  box-shadow: 5px 5px 10px rgba(0, 1, 6, 0.5), -3px -3px 10px rgba(0, 1, 6, 0.5);
+  /* text-align: center; */
+}
+
+.user-info span {
+  font-weight: 800;
+  color: #2b3547;
+}
+
 .del-div {
   /* border: 1px solid green; */
   margin-left: 20px;

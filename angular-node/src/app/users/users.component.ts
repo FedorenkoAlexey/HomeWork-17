@@ -21,12 +21,11 @@ export class UsersComponent implements OnInit {
 
   onSelect(user: User): void {
     this.selectedUser = user;
-    console.log("user.id", user);
   }
 
   data: User = {
     id: null,
-    username: "",
+    userName: "",
     firstname: "",
     lastname: "",
     sex: "",
@@ -38,6 +37,24 @@ export class UsersComponent implements OnInit {
       this.users = user;
     });
     console.log(this.users);
+  }
+
+  editUser(form: NgForm) {
+    let data = this.data;
+    data = this.selectedUser;
+    data.userName = form.value.username;
+    this.api.editUserName(data).subscribe(
+      response => {
+        console.log("response from GET API is ", response);
+      },
+      error => {
+        console.log("error is ", error);
+      }
+    );
+
+    // .subscribe(() => {
+    //   console.log("edit-user");
+    // });
   }
 
   deleteUsers = (id: number | string) => {
@@ -58,6 +75,13 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.api.getUsers();
+    // this.api.editUserName(this.data).subscribe(
+    //   response => {
+    //     console.log("response from GET API is ", response);
+    //   },
+    //   error => {
+    //     console.log("error is ", error);
+    //   }
+    // );
   }
 }
