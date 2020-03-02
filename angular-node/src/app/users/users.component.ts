@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ApiService } from "../rest/api.service";
 import { NgForm } from "@angular/forms";
 import { User } from "../rest/user/user.model";
+import { Post } from "../rest/post/post.model";
 
 @Component({
   selector: "app-users",
@@ -12,7 +13,7 @@ export class UsersComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   users: User;
-  posts: any; // Create intrface !!!
+  posts: Post;
   isActive: boolean = false;
   isShow: boolean = true;
 
@@ -50,7 +51,7 @@ export class UsersComponent implements OnInit {
   };
 
   getPosts(id: number) {
-    this.api.getUserPost(id).subscribe((posts: any) => {
+    this.api.getUserPost(id).subscribe((posts: Post) => {
       this.posts = posts;
       console.log(posts);
     });

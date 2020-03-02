@@ -1,9 +1,23 @@
 <div class="post-container">
   <div>
-    <ul>
+    <ol class="post-list">
       <li *ngFor="let post of posts">
         {{post.title}}
       </li>
-    </ul>
+    </ol>
+  </div>
+  <div class="add-post">
+    form
+    <form #form="ngForm" (ngSubmit)="addPost(form)">
+      <label>User Id</label>
+      <input
+        type="text"
+        placeholder="Your post"
+        name="title"
+        [(ngModel)]="postData.title"
+        #title="ngModel"
+      />
+      <button type="submit">Add Post</button>
+    </form>
   </div>
 </div>
