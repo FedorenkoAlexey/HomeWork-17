@@ -51,6 +51,18 @@
           #username="ngModel"
         />
         <button type="submit">Change nick name</button>
+
+        <mat-form-field>
+          <mat-label>User name</mat-label>
+          <input
+            matInput
+            *ngFor="let user of users"
+            (click)="onSelect(user)"
+            (click)="getPosts(user.id)"
+            [class.selected]="user === selectedUser"
+            class="user-field"
+          />
+        </mat-form-field>
       </form>
     </div>
   </div>
