@@ -1,6 +1,6 @@
 <div class="btn-cont">
   <div>
-    <button class="btn-get-users" (click)="getUsers()">Get Users</button>
+    <button class="btn" (click)="getUsers()">Get Users</button>
   </div>
   <div *ngIf="selectedUser" class="del-div">
     <h3>
@@ -32,6 +32,7 @@
   </div>
 
   <div *ngIf="selectedUser" class="user-block">
+    <h2 class="post-title">{{ selectedUser.userName }}s Posts:</h2>
     <div class="user-info">
       <h3>{{ selectedUser.userName }} :</h3>
       <div><span>First Name: </span> {{ selectedUser.firstName }}</div>
@@ -40,7 +41,7 @@
       <div><span>Age: </span>{{ selectedUser.age }}</div>
     </div>
 
-    <div>
+    <div class="input">
       <form #form="ngForm" (ngSubmit)="editUser(form)">
         <label></label>
         <input
@@ -50,7 +51,7 @@
           [(ngModel)]="data.username"
           #username="ngModel"
         />
-        <button type="submit">Change nick name</button>
+        <button class="btn" type="submit">Change nick name</button>
       </form>
     </div>
   </div>

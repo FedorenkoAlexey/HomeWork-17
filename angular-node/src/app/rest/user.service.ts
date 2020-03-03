@@ -10,7 +10,7 @@ const httpOptions = {
 @Injectable({
   providedIn: "root"
 })
-export class ApiService {
+export class userService {
   private USER_URL = "/api/users";
   private POST_URL = "/api/posts";
 

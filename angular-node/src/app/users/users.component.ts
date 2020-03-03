@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ApiService } from "../rest/api.service";
+import { userService } from "../rest/user.service";
 import { NgForm } from "@angular/forms";
 import { User } from "../rest/user/user.model";
 import { Post } from "../rest/post/post.model";
@@ -10,7 +10,7 @@ import { Post } from "../rest/post/post.model";
   styleUrls: ["./users.css"]
 })
 export class UsersComponent implements OnInit {
-  constructor(private api: ApiService) {}
+  constructor(private userService: userService) {}
 
   users: User;
   posts: Post;
@@ -33,7 +33,7 @@ export class UsersComponent implements OnInit {
   };
 
   getUsers(): void {
-    this.api.getUsers().subscribe((user: User) => {
+    this.userService.getUsers().subscribe((user: User) => {
       this.users = user;
     });
     console.log(this.users);
@@ -45,7 +45,7 @@ export class UsersComponent implements OnInit {
     data.userName = form.value.username;
     console.log("T_D: ", data);
     console.log("DATA: ", this.data);
-    this.api.editUserName(data).subscribe(
+    this.userService.editUserName(data).subscribe(
       response => {
         this.getUsers();
         console.log("response from GET API is ", response);
@@ -54,14 +54,10 @@ export class UsersComponent implements OnInit {
         console.log("error is ", error);
       }
     );
-
-    // .subscribe(() => {
-    //   console.log("edit-user");
-    // });
   }
 
   deleteUsers = (id: number | string) => {
-    this.api.deleteUser(id).subscribe(() => {
+    this.userService.deleteUser(id).subscribe(() => {
       this.getUsers();
 
       console.log(`deleted user id: ${id}`);
@@ -71,20 +67,11 @@ export class UsersComponent implements OnInit {
   };
 
   getPosts(id: number) {
-    this.api.getUserPost(id).subscribe((posts: Post) => {
+    this.userService.getUserPost(id).subscribe((posts: Post) => {
       this.posts = posts;
       console.log(posts);
     });
   }
 
-  ngOnInit() {
-    // this.api.editUserName(this.data).subscribe(
-    //   response => {
-    //     console.log("response from GET API is ", response);
-    //   },
-    //   error => {
-    //     console.log("error is ", error);
-    //   }
-    // );
-  }
+  ngOnInit() {}
 }

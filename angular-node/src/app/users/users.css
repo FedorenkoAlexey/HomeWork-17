@@ -12,8 +12,12 @@
   font-size: 16px;
 }
 
+.user-block {
+  max-width: 300px;
+}
+
 .user-info {
-  margin: 170px 5px 5px 50px;
+  margin: 70px 5px 5px 50px;
   padding: 30px 20px 50px 20px;
   font-size: 16px;
   height: 150px;
@@ -23,9 +27,24 @@
   /* text-align: center; */
 }
 
+.post-title {
+  /* padding-left: 100px; */
+  padding-top: 100px;
+}
+
 .user-info span {
   font-weight: 800;
   color: #2b3547;
+}
+
+.input {
+  margin: 20px 0 50px 50px;
+}
+
+input {
+  padding: 10px 60px;
+  outline: none;
+  border-radius: 5px;
 }
 
 .del-div {
@@ -84,46 +103,52 @@
   box-shadow: 0 0 12px rgb(0, 0, 0);
 }
 
-button {
-  position: relative;
-  display: inline-block;
-  width: 160px;
-  height: auto;
-  font-size: 90%;
-  font-weight: 700;
-  color: rgb(209, 209, 217);
-  text-decoration: none;
-  text-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
-  padding: 0.5em 1em;
-  outline: none;
-  border-radius: 3px;
-  background: linear-gradient(rgb(110, 112, 120), rgb(81, 81, 86))
-    rgb(110, 112, 120);
-  box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5),
-    0 0 1px 1px rgba(0, 1, 6, 0.2);
-  transition: 0.2s ease-in-out;
-}
-button:hover:not(:active) {
-  background: linear-gradient(rgb(126, 126, 134), rgb(70, 71, 76))
-    rgb(126, 126, 134);
-}
-button:active {
-  top: 1px;
-  background: linear-gradient(rgb(76, 77, 82), rgb(56, 57, 62)) rgb(76, 77, 82);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset,
-    0 2px 3px rgba(0, 0, 0, 0.5) inset, 0 1px 1px rgba(255, 255, 255, 0.1);
-}
 h2 {
   font-weight: 900;
   font-size: 36px;
   text-shadow: 0 0 5px rgb(209, 209, 217);
 }
 
-/* .user-list {
-  margin: 10px;
-  width: 350px;
-  text-align: center;
-} */
+.btn-del .btn:active {
+  top: 0.1em;
+  left: 0.1em;
+  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0.05) inset;
+}
+
+.btn {
+  margin: 30px 0 0 20px;
+  width: 10em;
+  height: 2.5em;
+  line-height: 2.5em;
+
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #777;
+  color: #fff;
+  outline: none;
+  border: 2px solid #2b2ef6;
+  border-radius: 5px;
+
+  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset,
+    0.1em 0.1em 0.2em rgb(0, 2, 136);
+  background: linear-gradient(#5f92f1, #4c82f5 48%, #1d34b3 52%, #1a30ad);
+}
+
+.btn-del {
+  margin: 0 0 30px 20px;
+  width: 10em;
+  height: 2.5em;
+  line-height: 2.5em;
+
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #777;
+  color: #fff;
+  outline: none;
+  border: 2px solid #f64c2b;
+  border-radius: 5px;
+
+  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, 0.1em 0.1em 0.2em #800;
+  background: linear-gradient(#f1815f, #f56b4c 48%, #b3291d 52%, #ad2c1a);
+}
 
 .selected {
   background: #324880;

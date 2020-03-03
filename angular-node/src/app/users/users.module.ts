@@ -1,8 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
-import { ApiService } from "../rest/api.service";
-import { MatInputModule } from "@angular/material/input";
+import { userService } from "../rest/user.service";
+// import { MatInputModule } from "@angular/material/input";
 import { UsersComponent } from "./users.component";
 import { CommonModule } from "@angular/common";
 
@@ -16,10 +16,10 @@ import { PostsModule } from "../posts/posts.module";
     HttpClientModule,
     FormsModule,
     PostsModule,
-    MatInputModule,
+    // MatInputModule,
     CommonModule
   ],
   exports: [UsersComponent],
-  providers: [ApiService]
+  providers: [userService]
 })
 export class UsersModule {}

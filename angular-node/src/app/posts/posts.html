@@ -1,5 +1,5 @@
 <div class="post-container">
-  <h2>Users Post</h2>
+  <!-- <h2>Users Post</h2> -->
   <div>
     <ol class="post-list">
       <li
@@ -25,12 +25,13 @@
       <label></label>
       <input
         type="text"
-        placeholder="Your post"
+        placeholder="Your new post"
         name="title"
         [(ngModel)]="postData.title"
         #title="ngModel"
       />
-      <button class="btn" type="submit">Add Post</button>
+      <br />
+      <button class="btn-add" type="submit">Add Post</button>
     </form>
   </div>
 </div>

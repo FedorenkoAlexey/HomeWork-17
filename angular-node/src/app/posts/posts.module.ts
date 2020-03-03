@@ -1,11 +1,12 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
-import { ApiService } from "../rest/api.service";
+import { userService } from "../rest/user.service";
 // import { MatInputModule } from "@angular/material/input";
 
 import { HttpClientModule } from "@angular/common/http";
 import { PostsComponent } from "./posts.component";
+import { postService } from "../rest/post.service";
 
 @NgModule({
   declarations: [PostsComponent],
@@ -16,6 +17,6 @@ import { PostsComponent } from "./posts.component";
     // , MatInputModule
   ],
   exports: [PostsComponent],
-  providers: [ApiService]
+  providers: [userService, postService]
 })
 export class PostsModule {}
