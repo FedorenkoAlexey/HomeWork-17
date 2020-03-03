@@ -2,14 +2,27 @@
   <h2>Users Post</h2>
   <div>
     <ol class="post-list">
-      <li *ngFor="let post of posts">
+      <li
+        *ngFor="let post of posts"
+        (click)="onSelect(post)"
+        [class.selected]="post === selected"
+      >
         {{post.title}}
       </li>
     </ol>
   </div>
   <div class="add-post">
+    <div class="btn-div">
+      <button
+        *ngIf="selected"
+        class="btn-del"
+        (click)="deletePost(selected.id)"
+      >
+        Delete post
+      </button>
+    </div>
     <form #form="ngForm" (ngSubmit)="addPost(form)">
-      <label>!</label>
+      <label></label>
       <input
         type="text"
         placeholder="Your post"
@@ -17,7 +30,7 @@
         [(ngModel)]="postData.title"
         #title="ngModel"
       />
-      <button type="submit">Add Post</button>
+      <button class="btn" type="submit">Add Post</button>
     </form>
   </div>
 </div>

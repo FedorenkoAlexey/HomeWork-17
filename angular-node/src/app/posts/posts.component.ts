@@ -17,6 +17,8 @@ export class PostsComponent implements OnInit {
     title: ""
   };
 
+  selected: Post;
+
   addPost(form: NgForm) {
     this.postData.userId = this.posts[0].userId;
     this.postService.createPost(this.postData).subscribe(
@@ -30,8 +32,16 @@ export class PostsComponent implements OnInit {
     console.log("ADD_POST", form.value, "POST_DATA: ", this.postData);
   }
 
-  // posts: Post;
-  // userId: number;
+  onSelect(post: Post) {
+    this.selected = post;
+    console.log(this.selected);
+  }
+
+  deletePost(id: number) {
+    this.postService.deletePost(id).subscribe(() => {
+      console.log(`deleted post id: ${id}`);
+    });
+  }
 
   @Input() posts: Post;
 

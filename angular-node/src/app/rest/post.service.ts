@@ -16,4 +16,9 @@ export class postService {
     console.log("run CreatePost", `${this.POST_URL}/add/${post.userId}`);
     return this.http.post(`${this.POST_URL}/add/${post.userId}`, post);
   }
+
+  deletePost(id: string | number) {
+    console.log("del-post");
+    return this.http.delete(`${this.POST_URL}/del/${id}`);
+  }
 }
